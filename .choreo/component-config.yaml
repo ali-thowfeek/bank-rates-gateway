@@ -16,3 +16,17 @@ spec:
       # +optional Context (base path) of the API that gets exposed via the endpoint.
       # This is mandatory if the endpoint type is set to REST or GraphQL.
       context: /
+      schemaFilePath: openapi.yaml
+  outbound:
+    serviceReferences:
+    - name: choreo:///alizone/bank-rates-backend/uvdjbf/8b1c3/v1.0/ORGANIZATION
+      connectionConfig: 01ef005d-63e9-1cd6-897d-0bcf94a5d51f
+      env:
+      - from: ServiceURL
+        to: BANK_RATES_SERVICE_URL
+      - from: ConsumerKey
+        to: CLIENT_ID
+      - from: ConsumerSecret
+        to: CLIENT_SECRET
+      - from: TokenURL
+        to: TOKEN_URL
