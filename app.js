@@ -56,7 +56,7 @@ app.get("/banks", async function (req, res) {
 
     res.status(response.status).send(response.data);
   } catch (error) {
-    console.error("Error fetching appointments:", error);
+    console.error("Error fetching banks:", error);
     res.status(500).send(error.message);
   }
 });
@@ -80,7 +80,35 @@ app.get("/currencies", async function (req, res) {
 
     res.status(response.status).send(response.data);
   } catch (error) {
-    console.error("Error fetching appointments:", error);
+    console.error("Error fetching currencies:", error);
+    res.status(500).send(error.message);
+  }
+});
+
+app.get("/rates", async function (req, res) {
+  try {
+    const accessToken = await getAccessToken();
+    const bankRatesServiceUrl = process.env.BANK_RATES_SERVICE_URL;
+
+    if (!bankRatesServiceUrl) {
+      throw new Error(
+        "Service URL is not defined in the environment variables"
+      );
+    }
+
+    const response = await axios.post(
+      `${bankRatesServiceUrl}/rates`,
+      req.body,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+    res.status(response.status).send(response.data);
+  } catch (error) {
+    console.error("Error fetching rates:", error);
     res.status(500).send(error.message);
   }
 });
