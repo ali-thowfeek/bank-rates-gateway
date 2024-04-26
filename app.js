@@ -85,7 +85,7 @@ app.get("/currencies", async function (req, res) {
   }
 });
 
-app.get("/rates", async function (req, res) {
+app.post("/rates", async function (req, res) {
   try {
     const accessToken = await getAccessToken();
     const bankRatesServiceUrl = process.env.BANK_RATES_SERVICE_URL;
