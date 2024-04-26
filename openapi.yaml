@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Bank Rates API
   description: API for accessing information about banks.
@@ -97,3 +97,18 @@ components:
         symbol:
           type: string
           description: The symbol of the currency.
+    NewBank:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new bank.
+    NewCurrency:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new currency.
+        symbol:
+          type: string
+          description: The symbol of the new currency.
