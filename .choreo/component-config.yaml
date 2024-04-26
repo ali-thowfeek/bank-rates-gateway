@@ -20,7 +20,7 @@ spec:
   outbound:
     serviceReferences:
     - name: choreo:///alizone/bank-rates-backend/uvdjbf/8b1c3/v1.0/ORGANIZATION
-      connectionConfig: 01ef005d-63e9-1cd6-897d-0bcf94a5d51f
+      connectionConfig: 01ef0378-082e-1850-94a3-bb7ce524e498
       env:
       - from: ServiceURL
         to: BANK_RATES_SERVICE_URL
